@@ -18,7 +18,7 @@ openfec.init('your-api-key');
 
 ## Examples
 
-Note - additional examples can be found in the [examples](tree/master/examples) directory.
+Note - additional examples can be found in the [examples](examples) directory.
 
 #### Get Candidate Details
 
