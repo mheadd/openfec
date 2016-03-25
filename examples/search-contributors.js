@@ -3,12 +3,14 @@ var openfec = require('../index.js');
 var key = process.argv[2];
 openfec.init(key);
 
-openfec.schedules.search({contributor_name: "Congel", per_page: 1}, function(error, response) {
+openfec.schedules.search({contributor_name: "Congel",}, function(error, status, response) {
 	if(error) {
 		console.log(error);
 	}
+	else if(status == '200') {
+		console.log(response.results[0]);
+	}
 	else {
-		var response = response.results; 
-		console.log(JSON.stringify(response[0]));
+		console.log(JSON.stringify(response));
 	}
 });
