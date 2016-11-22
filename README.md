@@ -38,7 +38,7 @@ openfec.candidate.details({candidate_id: "H2LA05084"}, function(error, status, r
 
 Produces:
 
-```json
+```javascript
 [ { incumbent_challenge: 'I',
     federal_funds_flag: false,
     load_date: '2013-05-28T22:18:11',
