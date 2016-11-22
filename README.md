@@ -23,81 +23,55 @@ Note - additional examples can be found in the [examples](examples) directory.
 #### Get Candidate Details
 
 ```javascript
-openfec.candidate.details({candidate_id: "P40002172"}, function(error, status, response) {
-  if(error) {
-    console.log(error);
-  }
-  else if(status == '200') {
-    var response = response.results; 
-    console.log(JSON.stringify(response[0]));
-  }
-  else {
-    console.log(JSON.stringify(response));
-  }
+openfec.candidate.details({candidate_id: "H2LA05084"}, function(error, status, response) {
+	if(error) {
+		console.log(error);
+	}
+	else if(status == '200') {
+		console.log(response.results);
+	}
+	else {
+		console.log(response);
+	}
 });
 ```
 
 Produces:
 
 ```json
-[
-  {
-    "load_date": "2013-05-28",
-    "candidate_inactive": false,
-    "address_city": "QUITMAN",
-    "district_number": 5,
-    "candidate_id": "H2LA05084",
-    "candidate_status": "C",
-    "address_zip": "71268",
-    "cycles": [
-      2002,
-      2004,
-      2006,
-      2008,
-      2010,
-      2012,
-      2014
-    ],
-    "election_years": [
-      2002,
-      2004,
-      2006,
-      2008,
-      2010,
-      2012,
-      2014
-    ],
-    "office_full": "House",
-    "active_through": 2014,
-    "election_districts": [
-      "05",
-      "05",
-      "05",
-      "05",
-      "05",
-      "05",
-      "05"
-    ],
-    "state": "LA",
-    "party": "REP",
-    "name": "ALEXANDER, RODNEY M. MR.",
-    "address_state": "LA",
-    "incumbent_challenge": "I",
-    "incumbent_challenge_full": "Incumbent",
-    "address_street_2": null,
-    "address_street_1": "319 NANCY'S ROAD",
-    "office": "H",
-    "district": "05",
-    "party_full": "Republican Party"
-  }
-]
+[ { incumbent_challenge: 'I',
+    federal_funds_flag: false,
+    load_date: '2013-05-28T22:18:11',
+    party: 'REP',
+    election_years: [ 2002, 2004, 2006, 2008, 2010, 2012, 2014 ],
+    flags: 'H2LA05084',
+    candidate_inactive: false,
+    office_full: 'House',
+    election_districts: [ '05', '05', '05', '05', '05', '05', '05' ],
+    has_raised_funds: true,
+    name: 'ALEXANDER, RODNEY M. MR.',
+    address_city: 'QUITMAN',
+    address_state: 'LA',
+    address_street_1: '319 NANCY\'S ROAD',
+    candidate_status: 'C',
+    cycles: [ 2002, 2004, 2006, 2008, 2010, 2012, 2014 ],
+    office: 'H',
+    party_full: 'Republican Party',
+    candidate_id: 'H2LA05084',
+    address_street_2: null,
+    incumbent_challenge_full: 'Incumbent',
+    district: '05',
+    district_number: 5,
+    state: 'LA',
+    address_zip: '71268',
+    active_through: 2014 } ]
 
 ```
 
 #### List Committees
 
 ```javascript
-openfec.committee.listAll({committee_type: ['H'], per_page: 5}, function(error, status, response) {
+openfec.committee.listAll({committee_type: ['H'], per_page: 3}, function(error, status, response) {
   if(error) {
     console.log(error);
   }
@@ -118,8 +92,6 @@ Produces:
 10TH CONG DEMOCRATIC WOMEN POLITICAL ACTION FUND
 12TH DISTRICT CITIZENS PARTY (PCC FOR TED KUHN)
 12TH DISTRICT COMMITTEE FOR A NEW CONGRESSMAN-ROB HUTH CHAIRMAN
-1974 HORNE FOR CONGRESS COMMITTEE
-1976 RAPP FOR CONGRESS COMMITTEE
 ```
 
 #### List Reports

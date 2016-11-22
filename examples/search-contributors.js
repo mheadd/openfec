@@ -1,7 +1,6 @@
-var openfec = require('../index.js');
+const openfec = require('../index.js');
 
-var key = process.argv[2];
-openfec.init(key);
+openfec.init(process.argv[2]);
 
 openfec.schedules.search({contributor_name: "Congel",}, function(error, status, response) {
 	if(error) {
@@ -11,6 +10,6 @@ openfec.schedules.search({contributor_name: "Congel",}, function(error, status, 
 		console.log(response.results[0]);
 	}
 	else {
-		console.log(JSON.stringify(response));
+		console.log(response);
 	}
 });

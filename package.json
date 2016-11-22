@@ -1,11 +1,14 @@
 {
   "name": "openfec",
-  "version": "0.6.6",
+  "version": "0.7.0",
   "description": "A wrapper for the Beta OpenFEC API from 18F.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/mheadd/openfec"
+  },
+  "engines": {
+    "node": "<=6.9.1"
   },
   "author": "Mark Headd <mheadd@gmail.com> (http://civic.io/)",
   "license": "BSD"
