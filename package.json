@@ -1,6 +1,6 @@
 {
   "name": "openfec",
-  "version": "0.8.0",
+  "version": "0.8.5",
   "description": "A wrapper for the Beta OpenFEC API from 18F.",
   "main": "index.js",
   "repository": {
