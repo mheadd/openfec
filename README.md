@@ -23,68 +23,61 @@ Note - additional examples can be found in the [examples](examples) directory.
 #### Get Candidate Details
 
 ```javascript
-openfec.candidate.details({candidate_id: "H2LA05084"}, function(error, status, response) {
-	if(error) {
+openfec.candidate.details({candidate_id: "H2LA05084"})
+	.then((response) => {
+		console.log(response.results);
+	})
+	.catch((error) => {
 		console.log(error);
 	}
-	else if(status == '200') {
-		console.log(response.results);
-	}
-	else {
-		console.log(response);
-	}
-});
+);
 ```
 
 Produces:
 
 ```javascript
-[ { incumbent_challenge: 'I',
-    federal_funds_flag: false,
-    load_date: '2013-05-28T22:18:11',
-    party: 'REP',
-    election_years: [ 2002, 2004, 2006, 2008, 2010, 2012, 2014 ],
+[ { load_date: '2013-05-28T22:18:11',
     flags: 'H2LA05084',
-    candidate_inactive: false,
-    office_full: 'House',
-    election_districts: [ '05', '05', '05', '05', '05', '05', '05' ],
-    has_raised_funds: true,
     name: 'ALEXANDER, RODNEY M. MR.',
+    address_street_2: null,
+    candidate_inactive: false,
+    office: 'H',
+    incumbent_challenge: 'I',
+    incumbent_challenge_full: 'Incumbent',
+    election_districts: [ '05', '05', '05', '05', '05', '05', '05' ],
     address_city: 'QUITMAN',
+    address_zip: '71268',
+    party_full: 'REPUBLICAN PARTY',
     address_state: 'LA',
-    address_street_1: '319 NANCY\'S ROAD',
+    district: '05',
+    has_raised_funds: true,
+    candidate_id: 'H2LA05084',
     candidate_status: 'C',
     cycles: [ 2002, 2004, 2006, 2008, 2010, 2012, 2014 ],
-    office: 'H',
-    party_full: 'Republican Party',
-    candidate_id: 'H2LA05084',
-    address_street_2: null,
-    incumbent_challenge_full: 'Incumbent',
-    district: '05',
-    district_number: 5,
+    active_through: 2014,
+    address_street_1: '319 NANCY\'S ROAD',
+    office_full: 'House',
+    party: 'REP',
     state: 'LA',
-    address_zip: '71268',
-    active_through: 2014 } ]
+    federal_funds_flag: false,
+    election_years: [ 2002, 2004, 2006, 2008, 2010, 2012, 2014 ],
+    district_number: 5 } ]
 
 ```
 
 #### List Committees
 
 ```javascript
-openfec.committee.listAll({committee_type: ['H'], per_page: 3}, function(error, status, response) {
-  if(error) {
-    console.log(error);
-  }
-  else if(status == '200') {
-    var results = response.results;
-    for(result in results) {
-      console.log(results[result].name);
-    }
-  }
-  else {
-    console.log(JSON.stringify(response));
-  }
-});
+openfec.committee.listAll({committee_type: ['H'], per_page: 3})
+	.then((response) => {
+		for(result in response.results) {
+			console.log(response.results[result].name);
+		}
+	})
+	.catch((error) => {
+		console.log(error);
+	}
+);
 ```
 Produces:
 
@@ -97,20 +90,16 @@ Produces:
 #### List Reports
 
 ```javascript
-openfec.reports.list({committee_id: "C00431445", year: ['2015']}, function(error, status, response) {
-  if(error) {
-    console.log(error);
-  }
-  else if(status == '200') {
-    var results = response.results;
-    for(result in results) {
-      console.log(results[result].pdf_url);
-    }
-  }
-  else {
-    console.log(JSON.stringify(response));
-  }
-});
+openfec.reports.list({committee_id: "C00431445", year: ['2015']})
+	.then((response) => {
+		for(result in response.results) {
+			console.log(response.results[result].pdf_url);
+		}
+	})
+	.catch((error) => {
+		console.log(error);
+	}
+);
 ```
 
 Produces:
