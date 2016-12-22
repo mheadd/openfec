@@ -1,6 +1,8 @@
 const expect = require('expect.js');
 const openfec = require('../index');
 
+const API_KEY = 'DEMO_KEY';
+
 describe('OpenFEC Client Library', () => {
 
   describe("#Initiatize", () => {
@@ -15,7 +17,7 @@ describe('OpenFEC Client Library', () => {
 
   describe('#GetCandidates', () => {
     it("Makes an API call to the Candidates endpoint", (done) => {
-      openfec.init('DEMO_KEY');
+      openfec.init(API_KEY);
       openfec.candidate.details({candidate_id: "H2LA05084"})
       .then((response) => {
         expect(response).to.be.an('object');
@@ -27,7 +29,7 @@ describe('OpenFEC Client Library', () => {
 
   describe('#GetCommitteess', () => {
     it("Makes an API call to the Committees endpoint", (done) => {
-      openfec.init('DEMO_KEY');
+      openfec.init(API_KEY);
       openfec.committee.listAll({committee_type: ['H'], per_page: 3})
       .then((response) => {
         expect(response).to.be.an('object');
@@ -39,7 +41,7 @@ describe('OpenFEC Client Library', () => {
 
   describe('#GetReports', () => {
     it("Makes an API call to the Reports endpoint", (done) => {
-      openfec.init('DEMO_KEY');
+      openfec.init(API_KEY);
       openfec.reports.list({committee_id: "C00431445", year: ['2015']})
       .then((response) => {
         expect(response).to.be.an('object');
@@ -51,7 +53,7 @@ describe('OpenFEC Client Library', () => {
 
   describe('#GetSchedules', () => {
     it("Makes an API call to the Schdules endpoint", (done) => {
-      openfec.init('DEMO_KEY');
+      openfec.init(API_KEY);
       openfec.schedules.searcByState({state: "NY", per_page: 3})
       .then((response) => {
         expect(response).to.be.an('object');

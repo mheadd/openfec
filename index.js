@@ -5,7 +5,7 @@ const reports = require('./lib/reports');
 const schedules = require('./lib/schedules');
 
 module.exports = {
-    init: function(key) {
+    init: (key) => {
         client.init(key);
     },
     candidate: candidate,
