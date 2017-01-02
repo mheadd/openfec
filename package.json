@@ -15,8 +15,10 @@
   },
   "author": "Mark Headd <mheadd@gmail.com> (http://civic.io/)",
   "license": "BSD",
+  "pre-commit": ["test"],
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2"
   }
 }
